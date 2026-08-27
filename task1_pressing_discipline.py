@@ -22,9 +22,9 @@ df = pd.merge(
 df['90s'] = pd.to_numeric(df['90s'], errors='coerce')
 df['Fls'] = pd.to_numeric(df['Fls'], errors='coerce')
 
-# drop missing rows, zero minutes, and goalies
+# drop missing rows, goalies, and players with under 1 full 90 mins (avoids per-90 rate distortion)
 df = df.dropna(subset=['90s', 'Fls'])
-df = df[(df['90s'] > 0) & (df['Pos'] != 'GK')]
+df = df[(df['90s'] >= 1.0) & (df['Pos'] != 'GK')]
 
 # foul rate per 90
 df['Fls_per90'] = df['Fls'] / df['90s']
@@ -40,7 +40,7 @@ df['Stage'] = 'Knockout Stage'
 for team in eliminated_teams:
     df.loc[df['Squad'].str.contains(team, case=False, na=False), 'Stage'] = 'Group Stage Exit'
 
-print("Total players:", len(df))
+print("Total qualifying players:", len(df))
 
 # grab random 60% sample from each group
 sample_exit = df[df['Stage'] == 'Group Stage Exit'].sample(frac=0.6, random_state=42)
@@ -51,39 +51,42 @@ group_exit = sample[sample['Stage'] == 'Group Stage Exit']['Fls_per90']
 group_ko = sample[sample['Stage'] == 'Knockout Stage']['Fls_per90']
 
 # summary stats
-print("\nGroup Stage Exit:")
-print("Mean:", group_exit.mean())
-print("Median:", group_exit.median())
-print("Std Dev:", group_exit.std())
+print("\n--- Group Stage Exit ---")
+print("Mean:   ", round(group_exit.mean(), 2))
+print("Median: ", round(group_exit.median(), 2))
+print("Std Dev:", round(group_exit.std(), 2))
 
-print("\nKnockout Stage:")
-print("Mean:", group_ko.mean())
-print("Median:", group_ko.median())
-print("Std Dev:", group_ko.std())
+print("\n--- Knockout Stage ---")
+print("Mean:   ", round(group_ko.mean(), 2))
+print("Median: ", round(group_ko.median(), 2))
+print("Std Dev:", round(group_ko.std(), 2))
 
-# plot comparison
-sample.boxplot(column='Fls_per90', by='Stage')
-plt.title('Fouls per 90 Mins: Group Exit vs Knockout')
+# boxplot comparison
+plt.figure(figsize=(7, 5))
+sample.boxplot(column='Fls_per90', by='Stage', grid=True)
+plt.title('Fouls per 90 Mins: Group Stage Exit vs Knockout Stage')
 plt.suptitle('')
-plt.ylabel('Fouls per 90')
+plt.xlabel('Tournament Stage')
+plt.ylabel('Fouls per 90 Minutes')
+plt.tight_layout()
 plt.savefig('fouls_plot.png')
 plt.show()
 
 # 95% confidence intervals
 ci_exit = stats.t.interval(0.95, df=len(group_exit)-1, loc=group_exit.mean(), scale=stats.sem(group_exit))
-print("\n95% CI (Exit):", ci_exit)
-
 ci_ko = stats.t.interval(0.95, df=len(group_ko)-1, loc=group_ko.mean(), scale=stats.sem(group_ko))
-print("95% CI (Knockout):", ci_ko)
 
-# t-test
+print("\n95% CI (Exit):", [round(x, 2) for x in ci_exit])
+print("95% CI (Knockout):", [round(x, 2) for x in ci_ko])
+
+# welch's two-sample t-test
 t_stat, p_val = stats.ttest_ind(group_exit, group_ko, equal_var=False)
 
-print("\nt-test results:")
-print("t-stat:", t_stat)
-print("p-value:", p_val)
+print("\n--- Two-Sample t-Test ---")
+print("t-statistic:", round(t_stat, 4))
+print("p-value:    ", round(p_val, 4))
 
 if p_val < 0.05:
-    print("Result: Significant difference (reject H0)")
+    print("Conclusion: Reject Null Hypothesis (Statistically significant difference).")
 else:
-    print("Result: No significant difference (fail to reject H0)")
+    print("Conclusion: Fail to Reject Null Hypothesis (No statistically significant difference).")
