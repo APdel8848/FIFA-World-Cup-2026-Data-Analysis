@@ -4,41 +4,26 @@ import matplotlib.pyplot as plt
 from scipy import stats
 import os
 
-
-# create output folder
 os.makedirs("task2/output", exist_ok=True)
 
-
-# ==========================================
-# TASK 2 - SHOTS ON TARGET PERCENTAGE
-# ==========================================
-
-# Research question:
-# Do forwards have a different average shots-on-target
-# percentage compared with non-forward outfield players?
+# Task 2
+# Question:
+# Do forwards have a significantly different mean
+# shots-on-target percentage compared with
+# non-forward outfield players?
 
 
-# ==========================================
-# STEP 1 - LOAD DATA
-# ==========================================
+# 1. Load data
 
-standard = pd.read_csv(
-    "task2/standard.csv"
-)
-
-shooting = pd.read_csv(
-    "task2/shooting.csv"
-)
+standard = pd.read_csv("task2/standard.csv")
+shooting = pd.read_csv("task2/shooting.csv")
 
 print("Standard shape:", standard.shape)
 print("Shooting shape:", shooting.shape)
 
 
-# ==========================================
-# STEP 2 - DATA WRANGLING
-# ==========================================
+# 2. Clean and prepare data
 
-# keep only the columns needed
 standard = standard[
     [
         "Player",
@@ -50,7 +35,7 @@ standard = standard[
         "Min",
         "90s"
     ]
-]
+].copy()
 
 shooting = shooting[
     [
@@ -60,20 +45,15 @@ shooting = shooting[
         "SoT",
         "SoT%"
     ]
-]
+].copy()
 
-
-# check missing values
 print("\nMissing values in standard:")
 print(standard.isnull().sum())
 
 print("\nMissing values in shooting:")
 print(shooting.isnull().sum())
 
-
-# check duplicate player and team keys
 print("\nDuplicate keys:")
-
 print(
     "Standard:",
     standard.duplicated(
@@ -88,8 +68,6 @@ print(
     ).sum()
 )
 
-
-# merge datasets
 data = pd.merge(
     standard,
     shooting,
@@ -97,21 +75,14 @@ data = pd.merge(
     how="inner"
 )
 
-print(
-    "\nMerged shape:",
-    data.shape
-)
+print("\nMerged shape:", data.shape)
 
-
-# clean team names after merging
 data["Squad"] = data["Squad"].str.replace(
     r"^[a-z]{2,3}\s+",
     "",
     regex=True
 )
 
-
-# convert shooting columns to numeric
 data["Sh"] = pd.to_numeric(
     data["Sh"],
     errors="coerce"
@@ -127,52 +98,53 @@ data["SoT%"] = pd.to_numeric(
     errors="coerce"
 )
 
-
 # remove goalkeepers
 data = data[
     ~data["Pos"].str.contains(
         "GK",
         na=False
     )
-]
+].copy()
 
 print(
-    "Players after removing goalkeepers:",
+    "\nPlayers after removing goalkeepers:",
     len(data)
 )
 
-
-# check missing SoT percentage
 print(
     "Missing SoT% after removing goalkeepers:",
     data["SoT%"].isnull().sum()
 )
 
-
-# remove players with missing SoT%
+# remove missing shooting values
 data = data.dropna(
     subset=[
+        "Sh",
+        "SoT",
         "SoT%"
     ]
-)
+).copy()
+
+# only players who attempted at least one shot
+data = data[
+    data["Sh"] > 0
+].copy()
 
 print(
-    "Players after removing missing SoT%:",
+    "Players after removing missing SoT% "
+    "and zero-shot players:",
     len(data)
 )
 
-
-# construct shots-on-target percentage ourselves
+# calculate shots-on-target percentage
 data["SoT_pct"] = (
-    data["SoT"] / data["Sh"]
+    data["SoT"] /
+    data["Sh"]
 ) * 100
 
 
-# ==========================================
-# CREATE POSITION GROUPS
-# ==========================================
+# Create position groups
 
-# any position containing FW is treated as Forward
 data["Group"] = np.where(
     data["Pos"].str.contains(
         "FW",
@@ -182,36 +154,28 @@ data["Group"] = np.where(
     "Non-Forward"
 )
 
-
 print("\nPlayers by position group:")
-print(
-    data["Group"].value_counts()
-)
+print(data["Group"].value_counts())
 
 
-# ==========================================
-# OUTLIER CHECK
-# ==========================================
+# 3. Outlier check
 
-Q1 = data["SoT_pct"].quantile(0.25)
-Q3 = data["SoT_pct"].quantile(0.75)
+q1 = data["SoT_pct"].quantile(0.25)
+q3 = data["SoT_pct"].quantile(0.75)
 
-IQR = Q3 - Q1
-
-lower = Q1 - 1.5 * IQR
-upper = Q3 + 1.5 * IQR
+iqr = q3 - q1
+lower = q1 - 1.5 * iqr
+upper = q3 + 1.5 * iqr
 
 outliers = data[
-    (data["SoT_pct"] < lower)
-    |
+    (data["SoT_pct"] < lower) |
     (data["SoT_pct"] > upper)
 ]
 
-
 print("\nOutlier check:")
-print("Q1 =", round(Q1, 2))
-print("Q3 =", round(Q3, 2))
-print("IQR =", round(IQR, 2))
+print("Q1 =", round(q1, 2))
+print("Q3 =", round(q3, 2))
+print("IQR =", round(iqr, 2))
 print("Lower limit =", round(lower, 2))
 print("Upper limit =", round(upper, 2))
 print("Number of outliers =", len(outliers))
@@ -222,9 +186,7 @@ print(
 )
 
 
-# ==========================================
-# POPULATION INFORMATION
-# ==========================================
+# 4. Population information
 
 forward_population = data[
     data["Group"] == "Forward"
@@ -234,22 +196,11 @@ nonforward_population = data[
     data["Group"] == "Non-Forward"
 ]
 
-
 print("\nPopulation sizes:")
-
-print(
-    "Forward =",
-    len(forward_population)
-)
-
-print(
-    "Non-Forward =",
-    len(nonforward_population)
-)
-
+print("Forward =", len(forward_population))
+print("Non-Forward =", len(nonforward_population))
 
 print("\nPopulation means:")
-
 print(
     "Forward mean =",
     round(
@@ -266,9 +217,7 @@ print(
     )
 )
 
-
 print("\nPopulation standard deviations:")
-
 print(
     "Forward SD =",
     round(
@@ -290,11 +239,20 @@ print(
 )
 
 
-# ==========================================
-# STEP 3 - SAMPLING
-# ==========================================
+# 5. Levels of measurement
 
-# take 30 random players from each group
+print("\nLevels of measurement:")
+print("Player -> Nominal")
+print("Squad -> Nominal")
+print("Pos -> Nominal")
+print("Group -> Nominal")
+print("Sh -> Ratio, Discrete")
+print("SoT -> Ratio, Discrete")
+print("SoT_pct -> Ratio, Continuous")
+
+
+# 6. Sampling
+
 forward_sample = forward_population.sample(
     n=30,
     random_state=42
@@ -305,157 +263,79 @@ nonforward_sample = nonforward_population.sample(
     random_state=42
 )
 
-
-# combine samples
 sample = pd.concat(
     [
         forward_sample,
         nonforward_sample
-    ]
+    ],
+    ignore_index=True
 )
-
 
 print("\nSample sizes:")
-print(
-    sample["Group"].value_counts()
-)
+print(sample["Group"].value_counts())
+print("Total sample =", len(sample))
 
 print(
-    "Total sample =",
-    len(sample)
+    "\nBoth groups have n = 30, which is sufficiently "
+    "large for the CLT approximation used in this analysis."
 )
 
-print(
-    "\nBoth groups have n = 30, "
-    "so the CLT requirement is satisfied."
-)
-
-
-# variables for analysis
 forward_group = forward_sample["SoT_pct"]
 nonforward_group = nonforward_sample["SoT_pct"]
 
 
-# ==========================================
-# STEP 4 - DESCRIPTIVE STATISTICS
-# ==========================================
+# 7. Descriptive statistics
 
-print(
-    "\n--- STEP 4: DESCRIPTIVE STATISTICS ---"
-)
-
-
-# Forward statistics
 f_mean = forward_group.mean()
 f_median = forward_group.median()
 f_mode = forward_group.mode()[0]
-f_range = forward_group.max() - forward_group.min()
-
-f_q1 = forward_group.quantile(0.25)
-f_q3 = forward_group.quantile(0.75)
-f_iqr = f_q3 - f_q1
-
+f_range = (
+    forward_group.max() -
+    forward_group.min()
+)
+f_iqr = (
+    forward_group.quantile(0.75) -
+    forward_group.quantile(0.25)
+)
 f_variance = forward_group.var()
 f_sd = forward_group.std()
 
-
-# Non-Forward statistics
 nf_mean = nonforward_group.mean()
 nf_median = nonforward_group.median()
 nf_mode = nonforward_group.mode()[0]
 nf_range = (
-    nonforward_group.max()
-    -
+    nonforward_group.max() -
     nonforward_group.min()
 )
-
-nf_q1 = nonforward_group.quantile(0.25)
-nf_q3 = nonforward_group.quantile(0.75)
-nf_iqr = nf_q3 - nf_q1
-
+nf_iqr = (
+    nonforward_group.quantile(0.75) -
+    nonforward_group.quantile(0.25)
+)
 nf_variance = nonforward_group.var()
 nf_sd = nonforward_group.std()
 
+print("\nDescriptive statistics")
 
 print("\nForward:")
-
-print(
-    "Mean =",
-    round(f_mean, 2)
-)
-
-print(
-    "Median =",
-    round(f_median, 2)
-)
-
-print(
-    "Mode =",
-    round(f_mode, 2)
-)
-
-print(
-    "Range =",
-    round(f_range, 2)
-)
-
-print(
-    "IQR =",
-    round(f_iqr, 2)
-)
-
-print(
-    "Variance =",
-    round(f_variance, 2)
-)
-
-print(
-    "Standard deviation =",
-    round(f_sd, 2)
-)
-
+print("Mean =", round(f_mean, 2))
+print("Median =", round(f_median, 2))
+print("Mode =", round(f_mode, 2))
+print("Range =", round(f_range, 2))
+print("IQR =", round(f_iqr, 2))
+print("Variance =", round(f_variance, 2))
+print("Standard deviation =", round(f_sd, 2))
 
 print("\nNon-Forward:")
-
-print(
-    "Mean =",
-    round(nf_mean, 2)
-)
-
-print(
-    "Median =",
-    round(nf_median, 2)
-)
-
-print(
-    "Mode =",
-    round(nf_mode, 2)
-)
-
-print(
-    "Range =",
-    round(nf_range, 2)
-)
-
-print(
-    "IQR =",
-    round(nf_iqr, 2)
-)
-
-print(
-    "Variance =",
-    round(nf_variance, 2)
-)
-
-print(
-    "Standard deviation =",
-    round(nf_sd, 2)
-)
+print("Mean =", round(nf_mean, 2))
+print("Median =", round(nf_median, 2))
+print("Mode =", round(nf_mode, 2))
+print("Range =", round(nf_range, 2))
+print("IQR =", round(nf_iqr, 2))
+print("Variance =", round(nf_variance, 2))
+print("Standard deviation =", round(nf_sd, 2))
 
 
-# ==========================================
-# HISTOGRAM
-# ==========================================
+# 8. Visualisations
 
 plt.hist(
     forward_group,
@@ -471,20 +351,12 @@ plt.hist(
     label="Non-Forward"
 )
 
-plt.xlabel(
-    "Shots on Target Percentage"
-)
-
-plt.ylabel(
-    "Frequency"
-)
-
+plt.xlabel("Shots on Target Percentage")
+plt.ylabel("Frequency")
 plt.title(
     "Distribution of Shots on Target Percentage"
 )
-
 plt.legend()
-
 plt.tight_layout()
 
 plt.savefig(
@@ -493,10 +365,6 @@ plt.savefig(
 
 plt.close()
 
-
-# ==========================================
-# BOXPLOT
-# ==========================================
 
 plt.boxplot(
     [
@@ -509,77 +377,43 @@ plt.boxplot(
     ]
 )
 
-plt.xlabel(
-    "Player Group"
-)
-
-plt.ylabel(
-    "Shots on Target Percentage"
-)
-
+plt.xlabel("Player Group")
+plt.ylabel("Shots on Target Percentage")
 plt.title(
     "Shots on Target Percentage by Player Group"
 )
-
 plt.tight_layout()
 
 plt.savefig(
     "task2/output/boxplot.png"
 )
 
-plt.show()
+plt.close()
 
 
-# ==========================================
-# STEP 5 - 95% CONFIDENCE INTERVAL
-# ==========================================
-
-print(
-    "\n--- STEP 5: 95% CONFIDENCE INTERVAL ---"
-)
-
+# 9. 95% confidence intervals
 
 z = 1.96
 
 n1 = len(forward_group)
 n2 = len(nonforward_group)
 
+f_se = f_sd / np.sqrt(n1)
+f_margin = z * f_se
+f_lower = f_mean - f_margin
+f_upper = f_mean + f_margin
 
-# Forward confidence interval
-f_se = (
-    f_sd / np.sqrt(n1)
-)
+nf_se = nf_sd / np.sqrt(n2)
+nf_margin = z * nf_se
+nf_lower = nf_mean - nf_margin
+nf_upper = nf_mean + nf_margin
 
-f_margin = (
-    z * f_se
-)
+print("\n95% Confidence Intervals")
 
-f_lower = (
-    f_mean - f_margin
-)
-
-f_upper = (
-    f_mean + f_margin
-)
-
-
-print("\nForward 95% CI:")
-
-print(
-    "Mean =",
-    round(f_mean, 2)
-)
-
-print(
-    "Standard Error =",
-    round(f_se, 2)
-)
-
-print(
-    "Margin of Error =",
-    round(f_margin, 2)
-)
-
+print("\nForward:")
+print("Mean =", round(f_mean, 2))
+print("Standard Error =", round(f_se, 2))
+print("Margin of Error =", round(f_margin, 2))
 print(
     "95% CI =",
     round(f_lower, 2),
@@ -587,42 +421,10 @@ print(
     round(f_upper, 2)
 )
 
-
-# Non-Forward confidence interval
-nf_se = (
-    nf_sd / np.sqrt(n2)
-)
-
-nf_margin = (
-    z * nf_se
-)
-
-nf_lower = (
-    nf_mean - nf_margin
-)
-
-nf_upper = (
-    nf_mean + nf_margin
-)
-
-
-print("\nNon-Forward 95% CI:")
-
-print(
-    "Mean =",
-    round(nf_mean, 2)
-)
-
-print(
-    "Standard Error =",
-    round(nf_se, 2)
-)
-
-print(
-    "Margin of Error =",
-    round(nf_margin, 2)
-)
-
+print("\nNon-Forward:")
+print("Mean =", round(nf_mean, 2))
+print("Standard Error =", round(nf_se, 2))
+print("Margin of Error =", round(nf_margin, 2))
 print(
     "95% CI =",
     round(nf_lower, 2),
@@ -631,28 +433,51 @@ print(
 )
 
 
-# ==========================================
-# STEP 6 - TWO-SAMPLE T-TEST
-# ==========================================
-
-print(
-    "\n--- STEP 6: TWO-SAMPLE T-TEST ---"
+plt.bar(
+    [
+        "Forward",
+        "Non-Forward"
+    ],
+    [
+        f_mean,
+        nf_mean
+    ],
+    yerr=[
+        f_margin,
+        nf_margin
+    ],
+    capsize=8
 )
 
+plt.ylabel(
+    "Mean Shots on Target Percentage"
+)
 
-# STATE
-print("\nSTATE:")
+plt.title(
+    "Mean Shots on Target Percentage with 95% Confidence Intervals"
+)
 
+plt.tight_layout()
+
+plt.savefig(
+    "task2/output/ci_comparison.png"
+)
+
+plt.close()
+
+
+# 10. Two-sample t-test
+
+print("\nTwo-sample t-test")
+
+print("\nState:")
 print(
-    "Do forwards have a different average "
+    "Do forwards have a different mean "
     "shots-on-target percentage compared with "
     "non-forward outfield players?"
 )
 
-
-# PLAN
-print("\nPLAN:")
-
+print("\nPlan:")
 print(
     "H0: Mean shots-on-target percentage is equal "
     "for forwards and non-forwards."
@@ -663,53 +488,28 @@ print(
     "for forwards and non-forwards."
 )
 
-print(
-    "Significance level = 0.05"
-)
+print("Significance level = 0.05")
 
-print(
-    "Test = Independent two-sample t-test"
-)
-
-
-# SOLVE
 t_value = (
     f_mean - nf_mean
 ) / np.sqrt(
-    (f_sd ** 2 / n1)
-    +
+    (f_sd ** 2 / n1) +
     (nf_sd ** 2 / n2)
 )
 
-
-# conservative degrees of freedom
 df = min(
     n1 - 1,
     n2 - 1
 )
 
-
-# two-sided p-value
-p_value = (
-    2 *
-    stats.t.sf(
-        abs(t_value),
-        df
-    )
+p_value = 2 * stats.t.sf(
+    abs(t_value),
+    df
 )
 
-
-print("\nSOLVE:")
-
-print(
-    "Forward mean =",
-    round(f_mean, 2)
-)
-
-print(
-    "Non-Forward mean =",
-    round(nf_mean, 2)
-)
+print("\nSolve:")
+print("Forward mean =", round(f_mean, 2))
+print("Non-Forward mean =", round(nf_mean, 2))
 
 print(
     "Difference in means =",
@@ -734,32 +534,22 @@ print(
     round(p_value, 4)
 )
 
-
-# CONCLUDE
-print("\nCONCLUDE:")
+print("\nConclusion:")
 
 if p_value <= 0.05:
+    print("Reject H0.")
 
     print(
-        "Reject H0."
-    )
-
-    print(
-        "There is sufficient evidence that "
-        "the average shots-on-target percentage "
-        "is different between forwards and "
-        "non-forward outfield players."
+        "There is sufficient evidence that the mean "
+        "shots-on-target percentage is different "
+        "between forwards and non-forwards."
     )
 
 else:
+    print("Do not reject H0.")
 
     print(
-        "Do not reject H0."
-    )
-
-    print(
-        "There is not sufficient evidence that "
-        "the average shots-on-target percentage "
-        "is different between forwards and "
-        "non-forward outfield players."
+        "There is not sufficient evidence that the mean "
+        "shots-on-target percentage is different "
+        "between forwards and non-forwards."
     )

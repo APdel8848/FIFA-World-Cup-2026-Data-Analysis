@@ -1,22 +1,38 @@
-# Task-4 Do defenders have a significantly higher mean number of tackles won per 90 minutes than midfielders at the FIFA World Cup 2026?
-
 import pandas as pd
-from scipy import stats
+import numpy as np
 import matplotlib.pyplot as plt
+from scipy import stats
+import os
+
+os.makedirs("task4/output", exist_ok=True)
+
+# Task 4
+# Question:
+# Do defenders have a significantly higher mean number
+# of tackles won per 90 minutes than midfielders
+# at the FIFA World Cup 2026?
 
 
-# 1. Load Data 
-# FBref csv contains an extra header row (skiprows=1) 
-df = pd.read_csv("misc_stats.csv", skiprows=1)
+# 1. Load data
 
-# remover repeated header rows from data
-df = df[df["Player"] != "Player"].copy()
+misc = pd.read_csv(
+    "task4/misc_stats.csv",
+    skiprows=1
+)
 
-print("Original dataset shape:", df.shape)
+print(
+    "Misc dataset shape:",
+    misc.shape
+)
 
 
-# 2.Select required variables
-df = df[
+# 2. Clean and prepare data
+
+misc = misc[
+    misc["Player"] != "Player"
+]
+
+data = misc[
     [
         "Player",
         "Squad",
@@ -26,246 +42,601 @@ df = df[
     ]
 ].copy()
 
-print("\nSelected columns:")
-print(df.head())
+print("\nMissing values:")
+print(data.isnull().sum())
 
-# 3. Data Wrangling / Cleaning
-#convert numerical columns to numbers
-df["90s"] = pd.to_numeric(
-    df["90s"],
-    errors="coerce" #change invalid values to NaN
+print("\nDuplicate keys:")
+print(
+    data.duplicated(
+        ["Player", "Squad"]
+    ).sum()
 )
 
-df["TklW"] = pd.to_numeric(
-    df["TklW"],
+data["Squad"] = data["Squad"].str.replace(
+    r"^[a-z]{2,3}\s+",
+    "",
+    regex=True
+)
+
+data["90s"] = pd.to_numeric(
+    data["90s"],
     errors="coerce"
 )
 
-# remove rows with missing values
-df = df.dropna(
+data["TklW"] = pd.to_numeric(
+    data["TklW"],
+    errors="coerce"
+)
+
+data = data.dropna(
     subset=[
         "Player",
         "Pos",
         "90s",
         "TklW"
     ]
-)
+).copy()
 
-# Use only players whose position is clearly (Defender (DF) or Midfielder (MF))
-# Mixed positions such as FWMF, MFFW, DFMF are excluded so that the two groups are clearly defined.
-df = df[
-    df["Pos"].isin(["DF", "MF"])
-].copy()
 
-# to keep players who played at least 1 full 90 minutes of tournament playing time.
-df = df[
-    df["90s"] >= 1.0
-].copy()
+# Keep only clear defenders and midfielders
 
-print("\nEligible players after cleaning:", len(df))
-
-print("\nPosition counts:")
-print(df["Pos"].value_counts())
-
-# 4. Create tackles won per 90
-df["TklW_per90"] = (
-    df["TklW"] / df["90s"]
-)
-
-print("\nCleaned data:")
-print(
-    df[
+data = data[
+    data["Pos"].isin(
         [
-            "Player",
-            "Squad",
-            "Pos",
-            "90s",
-            "TklW",
-            "TklW_per90"
+            "DF",
+            "MF"
         ]
-    ].head()
+    )
+].copy()
+
+# only include players who played at least 90 minutes
+data = data[
+    data["90s"] >= 1.0
+].copy()
+
+# calculate tackles won per 90 minutes
+data["TklW_per90"] = (
+    data["TklW"] /
+    data["90s"]
+)
+
+data["Group"] = np.where(
+    data["Pos"] == "DF",
+    "Defender",
+    "Midfielder"
+)
+
+print(
+    "\nEligible players after cleaning:",
+    len(data)
+)
+
+print(
+    "\nPlayers by position group:"
+)
+
+print(
+    data["Group"].value_counts()
 )
 
 
-# 5. Define population
-# Population: Eligible defenders and midfielders at the FIFA World Cup 2026 who played at least 90 tournament minutes.
+# 3. Outlier check
 
-population = df.copy()
-print("\nPopulation size:", len(population))
+q1 = data["TklW_per90"].quantile(0.25)
+q3 = data["TklW_per90"].quantile(0.75)
 
-print("\nPopulation groups:")
-print(population["Pos"].value_counts())
+iqr = q3 - q1
 
-# 6. Stratified Random Sampling
+lower = q1 - 1.5 * iqr
+upper = q3 + 1.5 * iqr
 
-# We sample separately from defenders and midfielders.
-# random_state=42, to get the same random sample every time
-
-SAMPLE_FRACTION = 0.70 #selected 70% of the eligibel players
-
-defenders_population = population[
-    population["Pos"] == "DF"
+outliers = data[
+    (data["TklW_per90"] < lower) |
+    (data["TklW_per90"] > upper)
 ]
 
-midfielders_population = population[
-    population["Pos"] == "MF"
+print("\nOutlier check:")
+print("Q1 =", round(q1, 2))
+print("Q3 =", round(q3, 2))
+print("IQR =", round(iqr, 2))
+print("Lower limit =", round(lower, 2))
+print("Upper limit =", round(upper, 2))
+print("Number of outliers =", len(outliers))
+
+print(
+    "Outliers are kept because unusually high or low "
+    "tackle rates can represent real player performances."
+)
+
+
+# 4. Population information
+
+defender_population = data[
+    data["Group"] == "Defender"
 ]
 
-defenders_sample = defenders_population.sample(
-    frac=SAMPLE_FRACTION,
+midfielder_population = data[
+    data["Group"] == "Midfielder"
+]
+
+print("\nPopulation sizes:")
+
+print(
+    "Defender =",
+    len(defender_population)
+)
+
+print(
+    "Midfielder =",
+    len(midfielder_population)
+)
+
+print("\nPopulation means:")
+
+print(
+    "Defender mean =",
+    round(
+        defender_population[
+            "TklW_per90"
+        ].mean(),
+        2
+    )
+)
+
+print(
+    "Midfielder mean =",
+    round(
+        midfielder_population[
+            "TklW_per90"
+        ].mean(),
+        2
+    )
+)
+
+print(
+    "\nPopulation standard deviations:"
+)
+
+print(
+    "Defender SD =",
+    round(
+        defender_population[
+            "TklW_per90"
+        ].std(
+            ddof=0
+        ),
+        2
+    )
+)
+
+print(
+    "Midfielder SD =",
+    round(
+        midfielder_population[
+            "TklW_per90"
+        ].std(
+            ddof=0
+        ),
+        2
+    )
+)
+
+
+# 5. Levels of measurement
+
+print("\nLevels of measurement:")
+print("Player -> Nominal")
+print("Squad -> Nominal")
+print("Pos -> Nominal")
+print("Group -> Nominal")
+print("90s -> Ratio, Continuous")
+print("TklW -> Ratio, Discrete")
+print("TklW_per90 -> Ratio, Continuous")
+
+
+# 6. Sampling
+
+defender_sample = defender_population.sample(
+    n=30,
     random_state=42
 )
 
-midfielders_sample = midfielders_population.sample(
-    frac=SAMPLE_FRACTION,
+midfielder_sample = midfielder_population.sample(
+    n=30,
     random_state=42
 )
 
 sample = pd.concat(
     [
-        defenders_sample,
-        midfielders_sample
+        defender_sample,
+        midfielder_sample
     ],
     ignore_index=True
 )
 
-print("\nSample size:", len(sample))
-
-print("\nSample group counts:")
-print(sample["Pos"].value_counts())
-
-
-# 7. Create two groups
-defenders = sample[
-    sample["Pos"] == "DF"
-]["TklW_per90"]
-
-midfielders = sample[
-    sample["Pos"] == "MF"
-]["TklW_per90"]
-
-
-# 8. Descriptive Statistics
-print("\nDESCRIPTIVE STATISTICS")
-print("\n-- Defenders --")
-print("Count:  ", len(defenders))
-print("Mean:   ", round(defenders.mean(), 3))
-print("Median: ", round(defenders.median(), 3))
-print("Std Dev:", round(defenders.std(), 3))
-print("Min:    ", round(defenders.min(), 3))
-print("Max:    ", round(defenders.max(), 3))
-
-print("\n-- Midfielders --")
-print("Count:  ", len(midfielders))
-print("Mean:   ", round(midfielders.mean(), 3))
-print("Median: ", round(midfielders.median(), 3))
-print("Std Dev:", round(midfielders.std(), 3))
-print("Min:    ", round(midfielders.min(), 3))
-print("Max:    ", round(midfielders.max(), 3))
-
-
-# 9. 95% Confidence Intervals
-
-def confidence_interval(series):
-    n = len(series)
-    mean = series.mean()
-    sem = stats.sem(series)
-
-    ci = stats.t.interval(
-        confidence=0.95,
-        df=n - 1,
-        loc=mean,
-        scale=sem
-    )
-
-    return ci
-
-
-defenders_ci = confidence_interval(defenders)
-midfielders_ci = confidence_interval(midfielders)
-
-print("\n95% CONFIDENCE INTERVALS")
-
+print("\nSample sizes:")
 print(
-    "\nDefenders mean tackles won/90:",
-    round(defenders.mean(), 3)
+    sample["Group"].value_counts()
 )
 
 print(
-    "Defenders 95% CI:",
-    [round(float(x), 3) for x in defenders_ci]
+    "Total sample =",
+    len(sample)
 )
 
 print(
-    "\nMidfielders mean tackles won/90:",
-    round(midfielders.mean(), 3)
+    "\nBoth groups have n = 30, which is sufficiently "
+    "large for the CLT approximation used in this analysis."
 )
 
+defender_group = defender_sample[
+    "TklW_per90"
+]
+
+midfielder_group = midfielder_sample[
+    "TklW_per90"
+]
+
+
+# 7. Descriptive statistics
+
+d_mean = defender_group.mean()
+d_median = defender_group.median()
+d_mode = defender_group.mode()[0]
+
+d_range = (
+    defender_group.max() -
+    defender_group.min()
+)
+
+d_iqr = (
+    defender_group.quantile(0.75) -
+    defender_group.quantile(0.25)
+)
+
+d_variance = defender_group.var()
+d_sd = defender_group.std()
+
+
+m_mean = midfielder_group.mean()
+m_median = midfielder_group.median()
+m_mode = midfielder_group.mode()[0]
+
+m_range = (
+    midfielder_group.max() -
+    midfielder_group.min()
+)
+
+m_iqr = (
+    midfielder_group.quantile(0.75) -
+    midfielder_group.quantile(0.25)
+)
+
+m_variance = midfielder_group.var()
+m_sd = midfielder_group.std()
+
+
+print("\nDescriptive statistics")
+
+print("\nDefender:")
+print("Mean =", round(d_mean, 2))
+print("Median =", round(d_median, 2))
+print("Mode =", round(d_mode, 2))
+print("Range =", round(d_range, 2))
+print("IQR =", round(d_iqr, 2))
+print("Variance =", round(d_variance, 2))
 print(
-    "Midfielders 95% CI:",
-    [round(float(x), 3) for x in midfielders_ci]
+    "Standard deviation =",
+    round(d_sd, 2)
+)
+
+print("\nMidfielder:")
+print("Mean =", round(m_mean, 2))
+print("Median =", round(m_median, 2))
+print("Mode =", round(m_mode, 2))
+print("Range =", round(m_range, 2))
+print("IQR =", round(m_iqr, 2))
+print("Variance =", round(m_variance, 2))
+print(
+    "Standard deviation =",
+    round(m_sd, 2)
 )
 
 
-# 10. Visualisation
+# 8. Visualisations
 
-sample.boxplot(
-    column="TklW_per90",
-    by="Pos",
-    figsize=(7, 5),
-    grid=True
+plt.hist(
+    defender_group,
+    bins=8,
+    alpha=0.6,
+    label="Defender"
 )
 
-plt.title("Tackles Won per 90: Defenders vs Midfielders")
-plt.suptitle("")
-plt.xlabel("Player Position")
-plt.ylabel("Tackles Won per 90 Minutes")
+plt.hist(
+    midfielder_group,
+    bins=8,
+    alpha=0.6,
+    label="Midfielder"
+)
+
+plt.xlabel(
+    "Tackles Won per 90 Minutes"
+)
+
+plt.ylabel(
+    "Frequency"
+)
+
+plt.title(
+    "Distribution of Tackles Won per 90 Minutes"
+)
+
+plt.legend()
 plt.tight_layout()
 
 plt.savefig(
-    "task4_tackles_boxplot.png",
-    dpi=150,
-    bbox_inches ="tight"
+    "task4/output/histogram.png"
 )
 
-plt.show()
+plt.close()
 
 
-# 11. Two-sample t-test
-# H0: Defenders do NOT have a higher mean tackles-won-per-90
-# than midfielders.
-# H1: Defenders have a higher mean tackles-won-per-90
-# than midfielders.
-
-t_stat, p_value = stats.ttest_ind(
-    defenders,
-    midfielders,
-    equal_var=False,
-    alternative="greater"
+plt.boxplot(
+    [
+        defender_group,
+        midfielder_group
+    ],
+    tick_labels=[
+        "Defender",
+        "Midfielder"
+    ]
 )
 
-print("\nTWO-SAMPLE T-TEST")
+plt.xlabel(
+    "Player Group"
+)
 
-print("t-statistic:",round(t_stat, 4))
-print("p-value:",round(p_value, 4))
+plt.ylabel(
+    "Tackles Won per 90 Minutes"
+)
 
-# 12. Statistical Decision
-alpha = 0.05
+plt.title(
+    "Tackles Won per 90 by Position"
+)
 
-if p_value < alpha:
+plt.tight_layout()
+
+plt.savefig(
+    "task4/output/boxplot.png"
+)
+
+plt.close()
+
+
+# 9. 95% confidence intervals
+
+z = 1.96
+
+n1 = len(defender_group)
+n2 = len(midfielder_group)
+
+d_se = (
+    d_sd /
+    np.sqrt(n1)
+)
+
+d_margin = (
+    z *
+    d_se
+)
+
+d_lower = (
+    d_mean -
+    d_margin
+)
+
+d_upper = (
+    d_mean +
+    d_margin
+)
+
+m_se = (
+    m_sd /
+    np.sqrt(n2)
+)
+
+m_margin = (
+    z *
+    m_se
+)
+
+m_lower = (
+    m_mean -
+    m_margin
+)
+
+m_upper = (
+    m_mean +
+    m_margin
+)
+
+
+print("\n95% Confidence Intervals")
+
+print("\nDefender:")
+print(
+    "Mean =",
+    round(d_mean, 2)
+)
+print(
+    "Standard Error =",
+    round(d_se, 2)
+)
+print(
+    "Margin of Error =",
+    round(d_margin, 2)
+)
+print(
+    "95% CI =",
+    round(d_lower, 2),
+    "to",
+    round(d_upper, 2)
+)
+
+
+print("\nMidfielder:")
+print(
+    "Mean =",
+    round(m_mean, 2)
+)
+print(
+    "Standard Error =",
+    round(m_se, 2)
+)
+print(
+    "Margin of Error =",
+    round(m_margin, 2)
+)
+print(
+    "95% CI =",
+    round(m_lower, 2),
+    "to",
+    round(m_upper, 2)
+)
+
+
+plt.bar(
+    [
+        "Defender",
+        "Midfielder"
+    ],
+    [
+        d_mean,
+        m_mean
+    ],
+    yerr=[
+        d_margin,
+        m_margin
+    ],
+    capsize=8
+)
+
+plt.ylabel(
+    "Mean Tackles Won per 90 Minutes"
+)
+
+plt.title(
+    "Mean Tackles Won per 90 with 95% Confidence Intervals"
+)
+
+plt.tight_layout()
+
+plt.savefig(
+    "task4/output/ci_comparison.png"
+)
+
+plt.close()
+
+
+# 10. One-sided two-sample t-test
+
+print("\nTwo-sample t-test")
+
+print("\nState:")
+
+print(
+    "Do defenders have a significantly higher "
+    "mean tackles-won-per-90 rate than midfielders?"
+)
+
+print("\nPlan:")
+
+print(
+    "H0: Mean tackles won per 90 for defenders "
+    "is less than or equal to midfielders."
+)
+
+print(
+    "Ha: Mean tackles won per 90 for defenders "
+    "is greater than midfielders."
+)
+
+print(
+    "Significance level = 0.05"
+)
+
+t_value = (
+    d_mean -
+    m_mean
+) / np.sqrt(
+    (d_sd ** 2 / n1) +
+    (m_sd ** 2 / n2)
+)
+
+df = min(
+    n1 - 1,
+    n2 - 1
+)
+
+p_value = stats.t.sf(
+    t_value,
+    df
+)
+
+print("\nSolve:")
+
+print(
+    "Defender mean =",
+    round(d_mean, 2)
+)
+
+print(
+    "Midfielder mean =",
+    round(m_mean, 2)
+)
+
+print(
+    "Difference in means =",
+    round(
+        d_mean - m_mean,
+        2
+    )
+)
+
+print(
+    "t-statistic =",
+    round(t_value, 3)
+)
+
+print(
+    "Degrees of freedom =",
+    df
+)
+
+print(
+    "One-sided p-value =",
+    round(p_value, 4)
+)
+
+
+print("\nConclusion:")
+
+if p_value <= 0.05:
+
+    print("Reject H0.")
 
     print(
-        "\nDecision: Reject H0."
+        "There is sufficient evidence that "
+        "defenders have a higher mean tackles-won-"
+        "per-90 rate than midfielders."
     )
 
 else:
 
-    print(
-        "\nDecision: Do not reject H0."
-    )
+    print("Do not reject H0.")
 
-# Save the graph
-print(
-    "\nSaved boxplot as:"
-    " task4_tackles_boxplot.png"
-)
+    print(
+        "There is not sufficient evidence that "
+        "defenders have a higher mean tackles-won-"
+        "per-90 rate than midfielders."
+    )
