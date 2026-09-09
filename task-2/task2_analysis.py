@@ -156,16 +156,8 @@ data = data.dropna(
     ]
 )
 
-
-# only include players who attempted at least one shot
-data = data[
-    data["Sh"] > 0
-]
-
-
 print(
-    "Players after removing missing SoT% "
-    "and zero-shot players:",
+    "Players after removing missing SoT%:",
     len(data)
 )
 
@@ -217,36 +209,12 @@ outliers = data[
 
 
 print("\nOutlier check:")
-
-print(
-    "Q1 =",
-    round(Q1, 2)
-)
-
-print(
-    "Q3 =",
-    round(Q3, 2)
-)
-
-print(
-    "IQR =",
-    round(IQR, 2)
-)
-
-print(
-    "Lower limit =",
-    round(lower, 2)
-)
-
-print(
-    "Upper limit =",
-    round(upper, 2)
-)
-
-print(
-    "Number of outliers =",
-    len(outliers)
-)
+print("Q1 =", round(Q1, 2))
+print("Q3 =", round(Q3, 2))
+print("IQR =", round(IQR, 2))
+print("Lower limit =", round(lower, 2))
+print("Upper limit =", round(upper, 2))
+print("Number of outliers =", len(outliers))
 
 print(
     "Outliers are kept because unusual shooting "
@@ -323,49 +291,6 @@ print(
 
 
 # ==========================================
-# STEP 3 - DATA PREPARATION: LEVELS OF MEASUREMENT
-# ==========================================
-
-print(
-    "\n--- STEP 3: LEVELS OF MEASUREMENT ---"
-)
-
-print(
-    "Player -> Nominal (player identifier)"
-)
-
-print(
-    "Pos -> Nominal (player position)"
-)
-
-print(
-    "Squad -> Nominal (team/country name)"
-)
-
-print(
-    "Group -> Nominal (Forward/Non-Forward)"
-)
-
-print(
-    "Sh -> Ratio, Discrete (number of shots attempted)"
-)
-
-print(
-    "SoT -> Ratio, Discrete (number of shots on target)"
-)
-
-print(
-    "SoT_pct -> Ratio, Continuous "
-    "(derived shots-on-target percentage)"
-)
-
-print(
-    "\nNote: the Group variable is used to compare "
-    "forwards with non-forward outfield players."
-)
-
-
-# ==========================================
 # STEP 3 - SAMPLING
 # ==========================================
 
@@ -391,7 +316,6 @@ sample = pd.concat(
 
 
 print("\nSample sizes:")
-
 print(
     sample["Group"].value_counts()
 )
@@ -403,14 +327,12 @@ print(
 
 print(
     "\nBoth groups have n = 30, "
-    "so the sample sizes are sufficiently large "
-    "for the CLT approximation."
+    "so the CLT requirement is satisfied."
 )
 
 
 # variables for analysis
 forward_group = forward_sample["SoT_pct"]
-
 nonforward_group = nonforward_sample["SoT_pct"]
 
 
@@ -425,35 +347,22 @@ print(
 
 # Forward statistics
 f_mean = forward_group.mean()
-
 f_median = forward_group.median()
-
 f_mode = forward_group.mode()[0]
-
-f_range = (
-    forward_group.max()
-    -
-    forward_group.min()
-)
+f_range = forward_group.max() - forward_group.min()
 
 f_q1 = forward_group.quantile(0.25)
-
 f_q3 = forward_group.quantile(0.75)
-
 f_iqr = f_q3 - f_q1
 
 f_variance = forward_group.var()
-
 f_sd = forward_group.std()
 
 
 # Non-Forward statistics
 nf_mean = nonforward_group.mean()
-
 nf_median = nonforward_group.median()
-
 nf_mode = nonforward_group.mode()[0]
-
 nf_range = (
     nonforward_group.max()
     -
@@ -461,13 +370,10 @@ nf_range = (
 )
 
 nf_q1 = nonforward_group.quantile(0.25)
-
 nf_q3 = nonforward_group.quantile(0.75)
-
 nf_iqr = nf_q3 - nf_q1
 
 nf_variance = nonforward_group.var()
-
 nf_sd = nonforward_group.std()
 
 
@@ -621,7 +527,7 @@ plt.savefig(
     "task2/output/boxplot.png"
 )
 
-plt.close()
+plt.show()
 
 
 # ==========================================
@@ -636,7 +542,6 @@ print(
 z = 1.96
 
 n1 = len(forward_group)
-
 n2 = len(nonforward_group)
 
 
@@ -724,50 +629,6 @@ print(
     "to",
     round(nf_upper, 2)
 )
-
-
-# ==========================================
-# CI COMPARISON CHART
-# ==========================================
-
-group_labels = [
-    "Forward",
-    "Non-Forward"
-]
-
-group_means = [
-    f_mean,
-    nf_mean
-]
-
-group_margins = [
-    f_margin,
-    nf_margin
-]
-
-plt.bar(
-    group_labels,
-    group_means,
-    yerr=group_margins,
-    capsize=8
-)
-
-plt.ylabel(
-    "Mean Shots on Target Percentage"
-)
-
-plt.title(
-    "Mean Shots on Target Percentage "
-    "with 95% Confidence Intervals"
-)
-
-plt.tight_layout()
-
-plt.savefig(
-    "task2/output/ci_comparison.png"
-)
-
-plt.close()
 
 
 # ==========================================
@@ -874,10 +735,7 @@ print(
 )
 
 
-# ==========================================
-# CONCLUSION
-# ==========================================
-
+# CONCLUDE
 print("\nCONCLUDE:")
 
 if p_value <= 0.05:
