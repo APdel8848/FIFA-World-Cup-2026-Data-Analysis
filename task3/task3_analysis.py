@@ -190,13 +190,11 @@ print(
 # ==========================================
 
 Q1 = data["Min_per_MP"].quantile(0.25)
-
 Q3 = data["Min_per_MP"].quantile(0.75)
 
 IQR = Q3 - Q1
 
 lower = Q1 - 1.5 * IQR
-
 upper = Q3 + 1.5 * IQR
 
 
@@ -314,67 +312,6 @@ print(
 
 
 # ==========================================
-# STEP 3 - DATA PREPARATION:
-# LEVELS OF MEASUREMENT
-# ==========================================
-
-print(
-    "\n--- STEP 3: LEVELS OF MEASUREMENT ---"
-)
-
-print(
-    "Player -> Nominal (player identifier)"
-)
-
-print(
-    "Pos -> Nominal (player position)"
-)
-
-print(
-    "Squad -> Nominal (team/country name)"
-)
-
-print(
-    "Group -> Nominal (Defender/Forward)"
-)
-
-print(
-    "MP -> Ratio, Discrete "
-    "(number of matches played)"
-)
-
-print(
-    "Starts -> Ratio, Discrete "
-    "(number of starts)"
-)
-
-print(
-    "Subs -> Ratio, Discrete "
-    "(number of substitute appearances)"
-)
-
-print(
-    "Min -> Ratio, Continuous "
-    "(total playing time)"
-)
-
-print(
-    "90s -> Ratio, Continuous "
-    "(playing time in 90-minute units)"
-)
-
-print(
-    "Min_per_MP -> Ratio, Continuous "
-    "(derived minutes-per-appearance variable)"
-)
-
-print(
-    "\nThe main response variable for this task "
-    "is Min_per_MP."
-)
-
-
-# ==========================================
 # STEP 3 - SAMPLING
 # ==========================================
 
@@ -415,19 +352,14 @@ print(
 
 print(
     "\nBoth groups have n = 30, "
-    "so the sample sizes are sufficiently large "
-    "for the CLT approximation."
+    "so the CLT requirement is satisfied."
 )
 
 
 # variables for analysis
-defender_group = defender_sample[
-    "Min_per_MP"
-]
+defender_group = defender_sample["Min_per_MP"]
 
-forward_group = forward_sample[
-    "Min_per_MP"
-]
+forward_group = forward_sample["Min_per_MP"]
 
 
 # ==========================================
@@ -740,50 +672,6 @@ print(
     "to",
     round(f_upper, 2)
 )
-
-
-# ==========================================
-# CI COMPARISON CHART
-# ==========================================
-
-group_labels = [
-    "Defender",
-    "Forward"
-]
-
-group_means = [
-    d_mean,
-    f_mean
-]
-
-group_margins = [
-    d_margin,
-    f_margin
-]
-
-plt.bar(
-    group_labels,
-    group_means,
-    yerr=group_margins,
-    capsize=8
-)
-
-plt.ylabel(
-    "Mean Minutes per Appearance"
-)
-
-plt.title(
-    "Mean Minutes per Appearance "
-    "with 95% Confidence Intervals"
-)
-
-plt.tight_layout()
-
-plt.savefig(
-    "task3/output/ci_comparison.png"
-)
-
-plt.close()
 
 
 # ==========================================
