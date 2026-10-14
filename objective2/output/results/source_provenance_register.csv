@@ -1,0 +1,9 @@
+item,publisher_or_method,url,verification_scope
+FIFA ranking snapshot date,FIFA,https://inside.fifa.com/fifa-rankings/world-ranking/men/news/argentina-reclaim-top-spot-mens-world-ranking-fifa-coca-cola,confirmed publication June 11 2026; full 48 values compared with independent MLSsoccer list
+FIFA ranking participant values,MLSsoccer,https://www.mlssoccer.com/competitions/fifa-world-cup/news/fifa-world-rankings-every-team-at-the-world-cup,independent 48-team cross-check; not direct FIFA table extraction
+World Cup match results,FBref,https://fbref.com/en/comps/1/schedule/schedule-Stats,column schema and opening results match; full 104-row external comparison not performed
+World Cup opening results,FIFA,https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums,two June 11 results checked
+Historical international results,Mart Jurisoo,https://github.com/martj42/international_results,column schema and row count consistent; exact source file checksum not checked
+2026 squad player snapshot,littlebiscuit666/world-cup-web; Transfermarkt attributed,https://github.com/littlebiscuit666/world-cup-web,"public repository confirms June 3 2026 snapshot, 48 teams, 1246 players; direct source HTML not independently compared"
+Top-five league club memberships,Five 2025-26 football-data.co.uk league CSVs,https://www.football-data.co.uk/data.php,96 league participants from local league files; 88 positive mapped; unresolved identities remain
+Opponent Elo,Locally calculated,,K=20 base=1500; no official external Elo source
