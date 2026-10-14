@@ -2,255 +2,515 @@
 
 ## HIT140 – Foundations of Data Science
 
-This repository contains our group project for HIT140 Foundations of Data Science at Charles Darwin University.
+**Charles Darwin University | Group 9**
 
-Our project looks at FIFA World Cup 2026 player statistics. We used Python to clean the datasets, create new variables, take random samples, calculate descriptive statistics and confidence intervals, create graphs, and perform hypothesis tests.
+This repository contains our group project for HIT140 – Foundations of Data Science at Charles Darwin University.
+
+The project investigates FIFA World Cup 2026 player and match statistics using Python, statistical hypothesis testing, data visualisation and predictive modelling.
+
+The project is divided into two objectives:
+
+- **Objective 1:** Statistical Analysis and Hypothesis Testing
+- **Objective 2:** Linear Regression and Predictive Modelling
+
+Both objectives are organised into separate folders to improve reproducibility, maintainability and collaboration.
 
 ## Group Members
 
-- Arun Paudel
-- Bishal Siris
-- Kanchan Lamichhane
-- Rahul K C
+| Name | Student ID |
+|---|---|
+| Arun Paudel | S397796 |
+| Bishal Siris | S397750 |
+| Kanchan Lamichhane | S398347 |
+| Rahul K C | S397990 |
 
-Lecturer: Yakub Sabastian
+**Lecturer:** Yakub Sabastian
 
 ---
 
-## Project Tasks
+# Objective 1 – Statistical Analysis and Hypothesis Testing
 
-We divided the project into four analysis tasks.
+## Overview
 
-### Task 1 – Fouls and Tournament Progression
+Objective 1 investigates four research questions using FIFA World Cup 2026 player performance statistics.
 
-**Question:**  
+The analyses include:
+
+- Data cleaning and preprocessing
+- Feature engineering
+- Random sampling
+- Descriptive statistics
+- Outlier detection
+- 95% confidence intervals
+- Two-sample hypothesis testing
+- Statistical visualisation and interpretation
+
+All four tasks are located in the `objective1/` directory.
+
+## Task 1 – Fouls and Tournament Progression
+
+### Research Question
+
 Among outfield players who played at least 90 minutes, is the mean fouls-per-90 rate significantly different between players from teams eliminated in the group stage and players from teams that reached the knockout stage?
+
+### Methodology
 
 We calculated fouls per 90 minutes and compared players from group-stage exit teams with players from knockout-stage teams.
 
-A random sample of 30 players was taken from each group.
+A random sample of 30 players was selected from each group.
 
-**Results:**
+### Results
 
-- Group Exit mean = 0.94 fouls per 90
-- Knockout mean = 1.03 fouls per 90
-- p-value = 0.6409
+| Measure | Value |
+|---|---:|
+| Group Exit mean | 0.94 fouls per 90 |
+| Knockout mean | 1.03 fouls per 90 |
+| p-value | 0.6409 |
+| Significance level | 0.05 |
 
-Since the p-value was greater than 0.05, we did not reject the null hypothesis. We did not find enough evidence of a significant difference between the two groups.
+**Conclusion:** Since the p-value exceeds 0.05, we failed to reject the null hypothesis. There was insufficient statistical evidence of a difference between the two groups.
 
-Main code:
+**Files:**
 
-`task1/task1_pressing_discipline.py`
+- `objective1/task1/task1_pressing_discipline.py`
+- `objective1/task1/misc_stats.csv`
+- `objective1/task1/standard_stats.csv`
+
+Visualisations are stored in `objective1/task1/output/`.
 
 ---
 
-### Task 2 – Shooting Performance
+## Task 2 – Shooting Performance
 
-**Question:**  
+### Research Question
+
 Do forwards have a significantly different mean shots-on-target percentage compared with non-forward outfield players?
 
-Shots-on-target percentage was calculated using:
+### Methodology
+
+Shots-on-target percentage was calculated as:
 
 `SoT_pct = (SoT / Sh) * 100`
 
-Goalkeepers and players with no shots were excluded. We then randomly sampled 30 forwards and 30 non-forwards.
+Goalkeepers and players with zero shots were excluded.
 
-**Results:**
+We randomly selected 30 forwards and 30 non-forward outfield players for comparison.
 
-- Forward mean = 34.94%
-- Non-forward mean = 24.80%
-- p-value = 0.2045
+### Results
 
-The forwards had a higher mean in our sample, but the difference was not statistically significant at the 0.05 level.
+| Measure | Value |
+|---|---:|
+| Forward mean | 34.94% |
+| Non-forward mean | 24.80% |
+| p-value | 0.2045 |
+| Significance level | 0.05 |
 
-Files used:
+**Conclusion:** Although forwards had a higher sample mean, the difference was not statistically significant at the 5% significance level.
 
-- `task2/task2_analysis.py`
-- `task2/standard.csv`
-- `task2/shooting.csv`
+**Files:**
 
-Graphs are saved in `task2/output/`.
+- `objective1/task2/task2_analysis.py`
+- `objective1/task2/standard.csv`
+- `objective1/task2/shooting.csv`
+
+Visualisations are stored in `objective1/task2/output/`.
 
 ---
 
-### Task 3 – Player Utilisation
+## Task 3 – Player Utilisation
 
-**Question:**  
+### Research Question
+
 Do defenders have a significantly different mean minutes played per appearance compared with forwards?
 
-For this task we calculated:
+### Methodology
+
+Minutes played per appearance were calculated using:
 
 `Min_per_MP = Min / MP`
 
-We compared a random sample of 30 defenders with 30 forwards.
+A random sample of 30 defenders was compared with 30 forwards.
 
-**Results:**
+### Results
 
-- Defender mean = 74.67 minutes per appearance
-- Forward mean = 42.27 minutes per appearance
-- Difference = 32.40 minutes
-- p-value = 0.0001
+| Measure | Value |
+|---|---:|
+| Defender mean | 74.67 minutes |
+| Forward mean | 42.27 minutes |
+| Mean difference | 32.40 minutes |
+| p-value | 0.0001 |
+| Significance level | 0.05 |
 
-This was the only task where we found a statistically significant difference. Since the p-value was below 0.05, we rejected the null hypothesis.
+**Conclusion:** The p-value was below 0.05, so we rejected the null hypothesis.
 
-The result shows a difference in playing time between the two position groups in our sample, but it does not tell us the cause of the difference.
+Defenders had significantly higher mean minutes played per appearance than forwards in the analysed sample.
 
-Files:
+However, this result does not establish the cause of the difference.
 
-- `task3/task3_analysis.py`
-- `task3/playing_time.csv`
+**Files:**
 
-Graphs are saved in `task3/output/`.
+- `objective1/task3/task3_analysis.py`
+- `objective1/task3/playing_time.csv`
+
+Visualisations are stored in `objective1/task3/output/`.
 
 ---
 
-### Task 4 – Tackles Won
+## Task 4 – Tackles Won
 
-**Question:**  
+### Research Question
+
 Do defenders have a significantly higher mean number of tackles won per 90 minutes than midfielders?
 
-For this task we used:
+### Methodology
+
+Tackles won per 90 minutes were calculated using:
 
 `TklW_per90 = TklW / 90s`
 
-We only included players listed clearly as defenders (DF) or midfielders (MF) who played at least 90 minutes.
+The analysis included players classified as defenders (DF) or midfielders (MF) who played at least 90 minutes.
 
-After cleaning the data there were 253 defenders and 254 midfielders. We randomly selected 30 players from each group using `random_state=42`.
+After preprocessing, the dataset contained 253 defenders and 254 midfielders.
 
-We also checked for outliers using the IQR method. There were 17 outliers, but we kept them because they could represent genuine player performances.
+We randomly sampled 30 players from each group using `random_state=42`.
 
-**Results:**
+Outliers were examined using the interquartile range (IQR) method. Seventeen outliers were identified and retained because they could represent genuine performances.
 
-- Defender mean = 1.06 tackles won per 90
-- Midfielder mean = 1.05 tackles won per 90
-- Defender 95% CI = 0.74 to 1.38
-- Midfielder 95% CI = 0.71 to 1.40
-- t-statistic = 0.03
-- p-value = 0.4880
+A one-sided two-sample t-test was performed.
 
-We used a one-sided two-sample t-test because our question asked whether defenders had a higher mean.
+### Results
 
-The p-value was greater than 0.05, so we did not reject the null hypothesis. There was not enough evidence to say that defenders had a higher mean tackles-won-per-90 rate than midfielders.
+| Measure | Value |
+|---|---:|
+| Defender mean | 1.06 tackles won per 90 |
+| Midfielder mean | 1.05 tackles won per 90 |
+| Defender 95% CI | 0.74–1.38 |
+| Midfielder 95% CI | 0.71–1.40 |
+| t-statistic | 0.03 |
+| p-value | 0.4880 |
 
-Files:
+**Conclusion:** Since the p-value was greater than 0.05, we failed to reject the null hypothesis.
 
-- `task4/task4_tackles_position.py`
-- `task4/misc_stats.csv`
+There was insufficient evidence that defenders had a higher mean tackles-won-per-90 rate than midfielders.
 
-Graphs are saved in `task4/output/`.
+**Files:**
+
+- `objective1/task4/task4_tackles_position.py`
+- `objective1/task4/misc_stats.csv`
+
+Visualisations are stored in `objective1/task4/output/`.
 
 ---
 
-## Overall Results
+## Objective 1 – Overall Results
 
-| Task | Comparison | p-value | Result |
+| Task | Comparison | p-value | Statistical Result |
 |---|---|---:|---|
-| 1 | Group Exit vs Knockout | 0.6409 | Not significant |
-| 2 | Forward vs Non-Forward | 0.2045 | Not significant |
-| 3 | Defender vs Forward | 0.0001 | Significant |
-| 4 | Defender vs Midfielder | 0.4880 | Not significant |
+| Task 1 | Group Exit vs Knockout | 0.6409 | Not significant |
+| Task 2 | Forward vs Non-forward | 0.2045 | Not significant |
+| Task 3 | Defender vs Forward | 0.0001 | Significant |
+| Task 4 | Defender vs Midfielder | 0.4880 | Not significant |
 
-The most noticeable result from our project was Task 3. Defenders had a much higher average number of minutes per appearance than forwards in the sample.
+### Key Findings
 
-For the other three tasks, we did not find enough statistical evidence to reject the null hypotheses.
+Task 3 demonstrated a statistically significant difference in minutes played per appearance between defenders and forwards.
 
----
+The other three tasks did not provide sufficient evidence to reject their respective null hypotheses at the 5% significance level.
 
-## Methods Used
-
-Some of the Python and statistical methods used in the project were:
-
-- pandas for loading and cleaning data
-- NumPy for calculations
-- Matplotlib for graphs
-- SciPy for statistical calculations
-- data cleaning and filtering
-- creating new variables
-- random sampling
-- descriptive statistics
-- outlier checking
-- 95% confidence intervals
-- two-sample t-tests
-
-For the samples we used `random_state=42` so that the same random samples can be reproduced.
+These findings demonstrate the importance of statistical testing rather than relying only on observed differences in sample means.
 
 ---
 
-## Project Structure
+# Objective 2 – Linear Regression and Predictive Modelling
+
+## Overview
+
+Objective 2 develops and evaluates regression models to investigate the relationship between pre-match explanatory variables and FIFA World Cup 2026 match outcomes.
+
+Unlike Objective 1, which focuses on hypothesis testing, Objective 2 focuses on predictive modelling and evaluating model performance.
+
+Two related but distinct regression tasks were undertaken.
+
+## Linear Regression 2.1 – Match Goal Difference Prediction
+
+### Research Objective
+
+Develop a regression model to predict the goal difference between two opposing teams in a FIFA World Cup 2026 match.
+
+### Dataset Requirements
+
+- 104 observations representing actual matches
+- Exactly eight explanatory variables
+- All explanatory variables must be available before the match
+- Goal difference is the target variable
+
+### Methodology
+
+The analysis includes:
+
+- Data cleaning and preprocessing
+- Construction of pre-match explanatory variables
+- Exploratory data analysis
+- Correlation and multicollinearity analysis
+- Linear regression modelling
+- Comparison of alternative regression algorithms
+- Cross-validation and holdout evaluation
+- Residual diagnostics and visualisations
+- Sensitivity analysis
+
+### Model Evaluation
+
+Model performance is evaluated using regression metrics such as:
+
+- Root Mean Squared Error (RMSE)
+- Mean Absolute Error (MAE)
+- Coefficient of Determination (R²)
+
+Alternative regression approaches are compared to assess predictive performance and model stability.
+
+The detailed implementation and generated results are available in the `objective2/` directory.
+
+---
+
+## Linear Regression 2.2 – Team Goals Scored Prediction
+
+### Research Objective
+
+Develop a regression model to predict the number of goals scored by an individual team in a FIFA World Cup 2026 match.
+
+### Dataset Requirements
+
+- 208 team-match observations
+- Exactly eight explanatory variables
+- All explanatory variables must be available before the match
+- Goals scored by a team is the target variable
+
+### Methodology
+
+The analysis includes:
+
+- Team-level data preparation
+- Pre-match feature engineering
+- Descriptive and exploratory analysis
+- Regression model development
+- Cross-validation
+- Comparison of competing models
+- Evaluation of predictive accuracy
+- Residual analysis
+- Model interpretation and visualisation
+
+### Model Evaluation
+
+Regression models are evaluated and compared using RMSE, MAE and R².
+
+The analysis examines model performance, explanatory relationships and limitations associated with predicting football outcomes.
+
+---
+
+## Objective 2 – Python Implementation
+
+Objective 2 includes an automated Python analysis pipeline.
+
+The pipeline supports:
+
+- Data preprocessing and validation
+- Feature engineering
+- Regression model training
+- Cross-validation and model comparison
+- Generation of statistical results
+- Generation of figures and diagnostic plots
+- Reproducible execution of the analysis
+
+**Main execution file:**
+
+`objective2/run_all.py`
+
+**Additional documentation:**
+
+`objective2/README.md`
+
+---
+
+# Project Structure
 
 ```text
 FIFA-World-Cup-2026-Data-Analysis/
 │
 ├── README.md
+├── .gitignore
 │
-├── task1/
-│   ├── task1_pressing_discipline.py
-│   └── output/
+├── objective1/
+│   ├── task1/
+│   │   ├── task1_pressing_discipline.py
+│   │   ├── misc_stats.csv
+│   │   ├── standard_stats.csv
+│   │   └── output/
+│   │
+│   ├── task2/
+│   │   ├── task2_analysis.py
+│   │   ├── standard.csv
+│   │   ├── shooting.csv
+│   │   └── output/
+│   │
+│   ├── task3/
+│   │   ├── task3_analysis.py
+│   │   ├── playing_time.csv
+│   │   └── output/
+│   │
+│   └── task4/
+│       ├── task4_tackles_position.py
+│       ├── misc_stats.csv
+│       └── output/
 │
-├── task2/
-│   ├── task2_analysis.py
-│   ├── standard.csv
-│   ├── shooting.csv
-│   └── output/
-│
-├── task3/
-│   ├── task3_analysis.py
-│   ├── playing_time.csv
-│   └── output/
-│
-└── task4/
-    ├── task4_tackles_position.py
-    ├── misc_stats.csv
+└── objective2/
+    ├── README.md
+    ├── requirements.txt
+    ├── run_all.py
+    │
+    ├── data/
+    │   ├── raw/
+    │   └── processed/
+    │
+    ├── scripts/
+    │   ├── preprocessing/
+    │   └── Python analysis scripts
+    │
     └── output/
+        ├── figures/
+        └── results/
 ```
 
 ---
 
-## How to Run
+# Installation and Execution
 
-Python 3 is required.
+## Prerequisites
 
-Install the packages if needed:
+- Python 3.11 or later recommended
+- Git
+- Python packages specified in the project dependencies
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/APdel8848/FIFA-World-Cup-2026-Data-Analysis.git
+cd FIFA-World-Cup-2026-Data-Analysis
+```
+
+## Run Objective 1
+
+Install the required packages:
 
 ```bash
 python3 -m pip install pandas numpy matplotlib scipy
 ```
 
-Clone the repository:
+Execute the four tasks from the repository root:
 
 ```bash
-git clone https://github.com/APdel8848/FIFA-World-Cup-2026-Data-Analysis.git
+python3 objective1/task1/task1_pressing_discipline.py
+python3 objective1/task2/task2_analysis.py
+python3 objective1/task3/task3_analysis.py
+python3 objective1/task4/task4_tackles_position.py
 ```
 
-Open the project folder:
+**Note:** If an Objective 1 script expects a CSV file relative to its own folder, run that script from its task directory or adjust its data-file path accordingly.
+
+## Run Objective 2
+
+Navigate to the Objective 2 folder:
 
 ```bash
-cd FIFA-World-Cup-2026-Data-Analysis
+cd objective2
 ```
 
-Run the tasks from the main project folder:
+Create and activate a virtual environment:
 
 ```bash
-python3 task1/task1_pressing_discipline.py
-python3 task2/task2_analysis.py
-python3 task3/task3_analysis.py
-python3 task4/task4_tackles_position.py
+python3 -m venv .venv
+source .venv/bin/activate
 ```
+
+Install dependencies:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+Run the full pipeline:
+
+```bash
+python3 run_all.py
+```
+
+Generated results and visualisations are stored in:
+
+- `objective2/output/results/`
+- `objective2/output/figures/`
+
+For detailed instructions, refer to `objective2/README.md`.
 
 ---
 
-## Limitations
+# Tools and Technologies
 
-There are some limitations in our analysis. The data only represents the tournament, so it does not show a player's overall performance across a full season. Players also had different amounts of playing time, and some mixed-position players had to be excluded from certain comparisons.
-
-The statistical tests show whether there is evidence of a difference between groups, but they do not explain why the difference happened.
+| Technology | Purpose |
+|---|---|
+| Python | Data analysis and predictive modelling |
+| pandas | Data cleaning and manipulation |
+| NumPy | Numerical calculations |
+| SciPy | Statistical hypothesis testing |
+| Matplotlib | Data visualisation |
+| scikit-learn | Regression modelling and evaluation |
+| Git | Version control |
+| GitHub | Team collaboration and code review |
+| VS Code | Development environment |
 
 ---
 
-## Conclusion
+# Team Collaboration and Version Control
 
-This project helped us apply the data science methods covered in HIT140 to a football dataset.
+The project was developed as a group using Git and GitHub to manage code, datasets and documentation.
 
-We used Python to prepare and analyse the data and then used confidence intervals and hypothesis tests to answer our four questions.
+Our collaboration workflow included:
 
-Three tasks did not show statistically significant differences. Task 3 showed a significant difference in minutes played per appearance between defenders and forwards.
+- Organising analyses into separate task and objective folders
+- Using branches for development and integration
+- Submitting pull requests to integrate project work
+- Reviewing changes before merging
+- Maintaining commit history for version tracking
+- Using shared project documentation to support reproducibility
+
+GitHub provides a record of contributions, pull requests, code reviews and project integration.
+
+---
+
+# Limitations
+
+## Objective 1
+
+The analyses focus on FIFA World Cup 2026 tournament statistics rather than full-season player performance.
+
+Differences in player participation, position classification and sample size may affect the generalisability of the findings.
+
+Statistical significance does not establish causation.
+
+## Objective 2
+
+Football match outcomes are influenced by numerous factors, including team selection, tactical decisions, injuries, match conditions and unpredictable events.
+
+Predictive models based on pre-match information may not capture all sources of variation.
+
+The analysis therefore focuses on model evaluation, predictive accuracy and the interpretation of limitations rather than assuming that match outcomes can be predicted perfectly.
+
+---
+
+# Conclusion
+
+This project demonstrates the application of foundational data science techniques to FIFA World Cup 2026 player and match statistics.
+
+**Objective 1** used data preprocessing, random sampling, confidence intervals and hypothesis testing to investigate four research questions. Three tasks produced non-significant results, while Task 3 identified a statistically significant difference in playing time between defenders and forwards.
+
+**Objective 2** extended the analysis through predictive modelling, developing regression models for match goal difference and team goals scored using pre-match explanatory variables.
+
+Together, both objectives demonstrate practical applications of Python programming, statistical reasoning, data visualisation, predictive modelling and collaborative software development.
