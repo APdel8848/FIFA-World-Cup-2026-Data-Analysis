@@ -1,0 +1,24 @@
+{
+  "world_cup_matches": 104,
+  "team_match_rows": 208,
+  "explanatory_variables": [
+    "fifa_rank",
+    "recent_form",
+    "avg_goals_scored",
+    "avg_goals_conceded",
+    "opponent_elo_rating",
+    "squad_value_m",
+    "avg_age",
+    "top5_league_player_count"
+  ],
+  "players": 1246,
+  "clubs": 453,
+  "mapped_top5_clubs": 88,
+  "reviewed_non_top5_clubs": 23,
+  "provisional_non_top5_clubs": 342,
+  "provisional_players": 635,
+  "total_top5_players_under_provisional_mapping": 487,
+  "elo_definition": "Calculated Elo (initial 1500, K=20, neutral, no official Elo claims)",
+  "snapshot_date": "2026-06-03",
+  "caveat": "Eight 2025-26 top-five participant names remain unmatched to the supplied player club-ID list; candidate IDs not independently validated."
+}

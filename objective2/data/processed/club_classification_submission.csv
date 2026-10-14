@@ -1,0 +1,454 @@
+club_id,club,player_count,league_2026,matched_league_club,is_top5_league,match_status,verification_source,national_teams,is_top5_league_final,classification_confidence
+281,Manchester City,19,Premier League,Man City,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+27,Bayern Munich,18,Bundesliga,Bayern Munich,1.0,EXACT,Football-Data.co.uk 2025-26,,1,mapped_top5
+11,Arsenal FC,16,Premier League,Arsenal,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+583,Paris Saint-Germain,15,Ligue 1,Paris SG,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+131,FC Barcelona,14,La Liga,Barcelona,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+13,Atlético de Madrid,12,La Liga,Ath Madrid,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+873,Crystal Palace,12,Premier League,Crystal Palace,1.0,EXACT,Football-Data.co.uk 2025-26,,1,mapped_top5
+16,Borussia Dortmund,11,Bundesliga,Dortmund,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+31,Liverpool FC,11,Premier League,Liverpool,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+985,Manchester United,11,Premier League,Man United,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+5,AC Milan,10,Serie A,Milan,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+418,Real Madrid,10,La Liga,Real Madrid,1.0,EXACT,Football-Data.co.uk 2025-26,,1,mapped_top5
+405,Aston Villa,9,Premier League,Aston Villa,1.0,EXACT,Football-Data.co.uk 2025-26,,1,mapped_top5
+289,Sunderland AFC,9,Premier League,Sunderland,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+1237,Brighton & Hove Albion,8,Premier League,Brighton,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+24,Eintracht Frankfurt,8,Bundesliga,Ein Frankfurt,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+1082,LOSC Lille,8,Ligue 1,Lille,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+762,Newcastle United,8,Premier League,Newcastle,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+417,OGC Nice,8,Ligue 1,Nice,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+244,Olympique Marseille,8,Ligue 1,Marseille,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+148,Tottenham Hotspur,8,Premier League,Tottenham,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+79,VfB Stuttgart,8,Bundesliga,Stuttgart,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+15,Bayer 04 Leverkusen,7,Bundesliga,Leverkusen,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+46,Inter Milan,7,Serie A,Inter,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+667,RC Strasbourg Alsace,7,Ligue 1,Strasbourg,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+150,Real Betis Balompié,7,La Liga,Betis,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+162,AS Monaco,6,Ligue 1,Monaco,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+12,AS Roma,6,Serie A,Roma,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+543,Wolverhampton Wanderers,6,Premier League,Wolves,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+18,Borussia Mönchengladbach,5,Bundesliga,M'gladbach,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+703,Nottingham Forest,5,Premier League,Nott'm Forest,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+1041,Olympique Lyon,5,Ligue 1,Lyon,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+23826,RB Leipzig,5,Bundesliga,RB Leipzig,1.0,EXACT,Football-Data.co.uk 2025-26,,1,mapped_top5
+681,Real Sociedad,5,La Liga,Sociedad,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+621,Athletic Bilbao,4,La Liga,Ath Bilbao,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+826,RC Lens,4,Ligue 1,Lens,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+6195,SSC Napoli,4,Serie A,Napoli,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+273,Stade Rennais FC,4,Ligue 1,Rennes,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+379,West Ham United,4,Premier League,West Ham,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+367,Rayo Vallecano,2,La Liga,Vallecano,1.0,ALIAS,Football-Data.co.uk 2025-26,,1,mapped_top5
+10004,Paris FC,1,Ligue 1,Paris FC,1.0,EXACT,Football-Data.co.uk 2025-26,,1,mapped_top5
+989,AFC Bournemouth,5,Premier League,Bournemouth,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1148,Brentford FC,4,Premier League,Brentford,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1132,Burnley FC,5,Premier League,Burnley,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+631,Chelsea FC,8,Premier League,Chelsea,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+29,Everton FC,4,Premier League,Everton,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+931,Fulham FC,6,Premier League,Fulham,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+399,Leeds United,4,Premier League,Leeds,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1531,Elche CF,1,La Liga,Elche,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+12321,Girona FC,2,La Liga,Girona,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+3368,Levante UD,1,La Liga,Levante,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+237,RCD Mallorca,2,La Liga,Mallorca,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+331,CA Osasuna,2,La Liga,Osasuna,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+2497,Real Oviedo,3,La Liga,Oviedo,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+368,Sevilla FC,3,La Liga,Sevilla,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1049,Valencia CF,1,La Liga,Valencia,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1050,Villarreal CF,8,La Liga,Villarreal,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+167,FC Augsburg,4,Bundesliga,Augsburg,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+60,SC Freiburg,4,Bundesliga,Freiburg,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+41,Hamburger SV,3,Bundesliga,Hamburg,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+533,TSG 1899 Hoffenheim,8,Bundesliga,Hoffenheim,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+39,1.FSV Mainz 05,6,Bundesliga,Mainz,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+35,FC St. Pauli,4,Bundesliga,St Pauli,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+89,1.FC Union Berlin,1,Bundesliga,Union Berlin,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+86,SV Werder Bremen,3,Bundesliga,Werder Bremen,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+82,VfL Wolfsburg,5,Bundesliga,Wolfsburg,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+800,Atalanta BC,7,Serie A,Atalanta,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1025,Bologna FC 1909,5,Serie A,Bologna,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1390,Cagliari Calcio,1,Serie A,Cagliari,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1047,Como 1907,3,Serie A,Como,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+2239,US Cremonese,2,Serie A,Cremonese,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+430,ACF Fiorentina,1,Serie A,Fiorentina,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+252,Genoa CFC,2,Serie A,Genoa,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+506,Juventus FC,6,Serie A,Juventus,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+6574,US Sassuolo,4,Serie A,Sassuolo,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+416,Torino FC,3,Serie A,Torino,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+410,Udinese Calcio,1,Serie A,Udinese,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+276,Hellas Verona,1,Serie A,Verona,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1420,Angers SCO,1,Ligue 1,Angers,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+290,AJ Auxerre,4,Ligue 1,Auxerre,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+738,Le Havre AC,3,Ligue 1,Le Havre,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1158,FC Lorient,3,Ligue 1,Lorient,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+995,FC Nantes,1,Ligue 1,Nantes,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+415,FC Toulouse,1,Ligue 1,Toulouse,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,,1,mapped_top5
+1114,Al-Hilal SFC,12,,,0.0,VERIFIED_NON_TOP5,Saudi Pro League official 2025-26 standings; season and club names confirmed by screenshot,6.0,0,user_evidence_non_top5
+141,Galatasaray,11,,,0.0,VERIFIED_NON_TOP5,2025-26 Turkish Super Lig standings; season and club names confirmed by screenshot,6.0,0,user_evidence_non_top5
+36,Fenerbahce,10,,,0.0,VERIFIED_NON_TOP5,2025-26 Turkish Super Lig standings; season and club names confirmed by screenshot,5.0,0,user_evidence_non_top5
+383,PSV Eindhoven,10,,,0.0,VERIFIED_NON_TOP5,2025-26 Dutch Eredivisie standings; season and clubs confirmed by screenshot,8.0,0,user_evidence_non_top5
+62,SK Slavia Prague,10,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+7,Al Ahly FC,9,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+18487,Al-Ahli SFC,9,,,0.0,VERIFIED_NON_TOP5,Saudi Pro League official 2025-26 standings; season and club names confirmed by screenshot,7.0,0,user_evidence_non_top5
+18544,Al-Nassr FC,9,,,0.0,VERIFIED_NON_TOP5,Saudi Pro League official 2025-26 standings; season and club names confirmed by screenshot,3.0,0,user_evidence_non_top5
+614,CR Flamengo,9,,,,UNREVIEWED,,4.0,0,provisional_non_top5
+371,Celtic FC,8,,,,UNREVIEWED,,7.0,0,provisional_non_top5
+6356,Mamelodi Sundowns FC,8,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2557,Orlando Pirates,8,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+294,SL Benfica,8,,,0.0,VERIFIED_NON_TOP5,2025-26 Portuguese Primeira Liga standings; season and club names confirmed by screenshot,7.0,0,user_evidence_non_top5
+26091,Al-Duhail SC,7,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+941,FC Viktoria Plzen,7,,,,UNREVIEWED,,5.0,0,provisional_non_top5
+1023,Sociedade Esportiva Palmeiras,7,,,,UNREVIEWED,,4.0,0,provisional_non_top5
+336,Sporting CP,7,,,0.0,VERIFIED_NON_TOP5,2025-26 Portuguese Primeira Liga standings; season and club names confirmed by screenshot,5.0,0,user_evidence_non_top5
+15795,Al-Hussein SC (Irbid),6,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+26069,Al-Qadsiah FC,6,,,0.0,VERIFIED_NON_TOP5,Saudi Pro League official 2025-26 standings; season and club names confirmed by screenshot,3.0,0,user_evidence_non_top5
+1076,Esteghlal FC,6,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+6079,Persepolis FC,6,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+656,Al-Sadd SC,5,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+118373,Auckland FC,5,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+452,BSC Young Boys,5,,,,UNREVIEWED,,4.0,0,provisional_non_top5
+6890,Basaksehir FK,5,,,0.0,VERIFIED_NON_TOP5,2025-26 Turkish Super Lig standings; season and club names confirmed by screenshot,4.0,0,user_evidence_non_top5
+209,CA River Plate,5,,,,UNREVIEWED,,4.0,0,provisional_non_top5
+2282,Club Brugge KV,5,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+6711,Deportivo Guadalajara,5,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+234,Feyenoord Rotterdam,5,,,0.0,VERIFIED_NON_TOP5,2025-26 Dutch Eredivisie standings; season and clubs confirmed by screenshot,4.0,0,user_evidence_non_top5
+1123,Norwich City,5,,,0.0,VERIFIED_NON_TOP5,Transfermarkt club identity; 2025-26 league classification: English Championship,5.0,0,user_evidence_non_top5
+3718,Pakhtakor Tashkent,5,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+44664,Pyramids FC,5,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+124,Rangers FC,5,,,0.0,VERIFIED_NON_TOP5,2025-26 Scottish Premiership standings screenshot supplied by user,3.0,0,user_evidence_non_top5
+12935,Tractor FC,5,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+610,Ajax Amsterdam,4,,,0.0,VERIFIED_NON_TOP5,2025-26 Dutch Eredivisie standings; season and clubs confirmed by screenshot,3.0,0,user_evidence_non_top5
+8023,Al-Ittihad Club,4,,,0.0,VERIFIED_NON_TOP5,Saudi Pro League official 2025-26 standings; season and club names confirmed by screenshot,3.0,0,user_evidence_non_top5
+3229,Al-Rayyan SC,4,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+13593,Al-Shorta SC,4,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+13509,Al-Wakrah SC,4,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+23806,Al-Zawraa SC,4,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+114,Besiktas JK,4,,,0.0,VERIFIED_NON_TOP5,2025-26 Turkish Super Lig standings; season and club names confirmed by screenshot,4.0,0,user_evidence_non_top5
+3631,CF América,4,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+330,Clube Atlético Mineiro,4,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+865,FC Midtjylland,4,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+1184,KRC Genk,4,,,,UNREVIEWED,,4.0,0,provisional_non_top5
+51828,Los Angeles FC,4,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+1075,SC Braga,4,,,,UNREVIEWED,,4.0,0,provisional_non_top5
+197,AC Sparta Prague,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2150,Al-Ain FC,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+1230,Al-Arabi SC,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+13592,Al-Faisaly SC,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+6297,Al-Gharafa SC,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+103329,Al-Karma,3,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+21726,Al-Talaba SC,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+126,Caykur Rizespor,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+432,Chicago Fire FC,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+190,FC Copenhagen,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+8816,FC Dallas,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+720,FC Porto,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+501,FK Bodø/Glimt,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+144,HNK Rijeka,3,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+43,Heart of Midlothian FC,3,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+3008,Hull City,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+69261,Inter Miami CF,3,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+6502,Jeonbuk Hyundai Motors,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+10484,Kasimpasa,3,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+1003,Leicester City,3,,,0.0,VERIFIED_NON_TOP5,Transfermarkt club identity; 2025-26 league classification: English Championship,2.0,0,user_evidence_non_top5
+25580,Melbourne City FC,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+56089,Minnesota United FC,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+13306,Neftchi Fergana,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+40058,New York City FC,3,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+45604,Orlando City SC,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+1269,PEC Zwolle,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+45457,Pafos FC,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+172,Royal Charleroi SC,3,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+4947,Sepahan FC,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2288,Swansea City,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+11141,Toronto FC,3,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+7633,UNAM Pumas,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+3948,Union Saint-Gilloise,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+6321,Vancouver Whitecaps FC,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+607,Venezia FC,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+1010,Watford FC,3,,,,UNREVIEWED,,3.0,0,provisional_non_top5
+8445,Wellington Phoenix,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+664,Zamalek SC,3,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+30120,AE Kifisia,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+4603,AE Larisa,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+786,AEL Limassol,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+618,AS Saint-Étienne,2,,,0.0,VERIFIED_NON_TOP5,Transfermarkt club identity; 2025-26 league classification: French Ligue 2,2.0,0,user_evidence_non_top5
+78312,Al-Bataeh CSC,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+7732,Al-Ettifaq FC,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+32328,Al-Najma SC,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+15796,Al-Wehdat SC,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+51663,Atlanta United FC,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+206,Bröndby IF,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+2063,CA Huracán,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1234,CA Independiente,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+2502,CD Castellón,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+3711,CD Cruz Azul,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+20960,CD Plaza Amador,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+17584,CD Universidad Católica,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+940,Celta de Vigo,2,La Liga,Celta,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,2.0,1,mapped_top5
+819,Club Africain,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1214,Club Cerro Porteño,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+13353,Club Tijuana,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+813,Columbus Crew,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+990,Coventry City,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+4720,Deportivo Saprissa,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1804,Deportivo Toluca,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+22,Derby County,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+44289,Dibba SCC,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+15300,Dinamo Samarqand,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+121,Dynamo Moscow,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+3342,Esperance Tunis,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+16704,FC Krasnodar,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+2790,FC Lugano,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+2778,FC Nordsjaelland,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+33,FC Schalke 04,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+6631,FC Tokyo,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+6912,FC Vizela,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+724,FC Volendam,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+9010,FCV Dender EH,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+6076,Foolad FC,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+419,GNK Dinamo Zagreb,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+210,Grêmio Foot-Ball Porto Alegrense,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+42,Hannover 96,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+74664,Igdir FK,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+38040,Kalba FC,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2241,Kashima Antlers,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+413,LASK,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+9855,LDU Quito,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+1064,Maccabi Haifa,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+42814,Miami FC,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+641,Middlesbrough FC,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+467,NEC Nijmegen,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+790,NK Maribor,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+20591,Nasaf Qarshi,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+683,Olympiacos Piraeus,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+1091,PAOK Thessaloniki,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+265,Panathinaikos,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+130,Parma Calcio 1913,2,Serie A,Parma,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,2.0,1,mapped_top5
+25467,Philadelphia Union,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+235,RKC Waalwijk,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+58,RSC Anderlecht,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+409,Red Bull Salzburg,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+159,Red Star Belgrade,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+1434,SC Telstar,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+114977,San Diego FC,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+15831,Selangor FC,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+350,Sheffield United,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+475,Sint-Truidense VV,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+180,Southampton FC,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+6600,Sport Club Internacional,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+3057,Standard Liège,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+512,Stoke City,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+449,Trabzonspor,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+6772,USM Alger,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+3535,Ulsan HD FC,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+239,Viking FK,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+1112,Wrexham AFC,2,,,,UNREVIEWED,,2.0,0,provisional_non_top5
+47010,Zed FC,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+964,Zenit St. Petersburg,2,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2441,AEK Athens,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2156,AEK Larnaca,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+272,AIK,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2784,APOEL Nicosia,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+9099,AS FAR Rabat,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1159,AS Nancy-Lorraine,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1090,AZ Alkmaar,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+678,Aarhus GF,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+40039,Abha Club,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+45193,Academia Puerto Cabello,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+71985,Akron Tolyatti,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+14456,Al-Dhafra FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+50531,Al-Fayha FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2524,Al-Jazira Club,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+5432,Al-Nasr SC (UAE),1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+23805,Al-Quwa Al-Jawiya,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4630,Al-Sailiya SC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+9840,Al-Shabab FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+10775,Al-Shamal SC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+107818,Al-Ula FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+161,Al-Wahda FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+11282,Alanyaspor,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+8344,Albirex Niigata,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+723,Almere City FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+429,Apollon Limassol,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+10586,Aris Limassol,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+8590,Atlas Guadalajara,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+8172,Atlético Nacional,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+3060,Atromitos Athens,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+14,Austria Vienna,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+5508,BSC Young Boys U21,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+349,Barnsley FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+337,Birmingham City,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+537,Botafogo de Futebol e Regatas,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+6340,Braintree Town,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+189,CA Boca Juniors,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+333,CA Lanús,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1418,CA Rosario Central,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1775,CA San Lorenzo de Almagro,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+3938,CA Talleres,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1029,CA Vélez Sarsfield,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+17482,CD Cobresal,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4523,CD Marathón,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+7179,CD Tondela,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2431,CF Estrela Amadora,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2407,CF Monterrey,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4035,CF Pachuca,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+12179,CS Independiente Rivadavia,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+581,CS Sfaxien,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+3268,Casa Pia AC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+520,Cercle Brugge,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+78435,Charlotte FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+358,Charlton Athletic,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+679,Club Athletico Paranaense,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+288,Club Estudiantes de La Plata,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4941,Club León FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+866,Club Nacional,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+978,Clube de Regatas Vasco da Gama,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1247,Colorado Rapids,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+45805,Colorado Springs Switchbacks FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+5689,Cracovia,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4542,Cultural Leonesa,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+6499,Daejeon Hana Citizen,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+26468,Deportivo La Guaira,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+75231,Dinamo Makhachkala,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+6055,ETO FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+20572,El Gouna FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+67375,El Paso Locomotive FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+250,Etoile Sportive du Sahel,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+22220,FC Astana,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4785,FC Baniyas,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2470,FC Barcelona U19,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+20151,FC Buxoro,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+51772,FC Cincinnati,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+45062,FC Cosmos Koblenz,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+404,FC Den Bosch,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1897,FC Hradec Kralove,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+49283,FC Juárez,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+60368,FC Noah Yerevan,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+31216,FC OKMK Olmaliq,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+49702,FC Pari Nizhniy Novgorod,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1083,FC Rostov,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+6500,FC Seoul,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+697,FC Slovan Liberec,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+750,FC Sochaux-Montbéliard,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+257,FC St. Gallen 1879,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+5507,FC Stade Nyonnais,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4531,FC Tatran Presov,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+317,FC Twente Enschede,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+6429,FC Universitatea Cluj,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+17596,FC Utrecht U21,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+260,FC Zürich,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+301,FCSB,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+3900,FK Borac Banja Luka,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+279,Ferencvárosi TC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2462,Fluminense Football Club,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+38,Fortuna Düsseldorf,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+8970,Frosinone Calcio,1,,,0.0,VERIFIED_NON_TOP5,Transfermarkt club identity; 2025-26 league classification: Italian Serie B,1.0,0,user_evidence_non_top5
+3325,GD Chaves,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+21459,Gangwon FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2832,Gaziantep FK,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2424,Gil Vicente FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+16795,Granada CF,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+316,Grazer AK 1902,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+447,HNK Hajduk Split,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+3601,Hearts of Oak,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1304,Heracles Almelo,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+903,Hibernian FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+269,Holstein Kiel,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2844,IFK Norrköping,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+19309,Independiente del Valle,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+677,Ipswich Town,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+6028,Ironi Kiryat Shmona,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+13366,JS Kabylie,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2300,Jagiellonia Bialystok,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+157,KAA Gent,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+354,KV Mechelen,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+568,Kaizer Chiefs,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+48,Karlsruher SC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+3205,Kayserispor,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2553,Kilmarnock FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2293,Konyaspor,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4000,Lechia Gdansk,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+932,Lokomotiv Moscow,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+31614,Ludogorets Razgrad,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1031,Luton Town,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+119,Maccabi Tel Aviv,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+23568,Machida Zelvia,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+17499,Malavan Bandar Anzali,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+496,Malmö FF,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+9251,Manchester United U21,1,,,0.0,VERIFIED_NON_TOP5,Transfermarkt club identity; 2025-26 league classification: Youth/reserve team,1.0,0,user_evidence_non_top5
+82696,Mazatlán FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+7006,Melbourne Victory,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1028,Millwall FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2719,Mjällby AIF,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+687,Molde FK,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+24078,Montana,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+969,Montpellier HSC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+987,Motherwell FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+34911,NEOM SC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+11194,NK Lokomotiva Zagreb,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+63966,Nashville SC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+15310,Navbahor Namangan,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+626,New England Revolution,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+5551,Newcastle United Jets,1,,,0.0,VERIFIED_NON_TOP5,Transfermarkt club identity; 2025-26 league classification: Australian A-League,1.0,0,user_evidence_non_top5
+629,Olimpia Asunción,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+829,Omonia Nicosia,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+14105,PERSIB Bandung,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+43570,Paris Saint-Germain Espoirs,1,,,0.0,VERIFIED_NON_TOP5,Transfermarkt club identity; 2025-26 league classification: Reserve team,1.0,0,user_evidence_non_top5
+1072,Peterborough United,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4172,Pisa Sporting Club,1,Serie A,Pisa,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,1.0,1,mapped_top5
+324,Pogon Szczecin,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+21202,Polokwane City FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+27092,Port FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1211,Port Vale FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4291,Portland Timbers,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1020,Portsmouth FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+37169,Puskás Akadémia FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+965,Qatar SC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+714,RCD Espanyol Barcelona,1,La Liga,Espanol,1.0,VERIFIED_ALIAS,Transfermarkt + Football-Data.co.uk,1.0,1,mapped_top5
+630,Racing Santander,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2068,Raja Club Athletic,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+5724,Randers FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+6643,Real Salt Lake City,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+8793,Red Bull Bragantino,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+37176,Renaissance de Berkane,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1194,Rotherham United,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1096,Royal Antwerp FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+595,SC Bastia,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4294,SC Farense,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2432,SC União Torreense,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+23777,SJK Seinäjoki,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+28643,SK Beveren,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+152,Samsunspor,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2697,Sanfrecce Hiroshima,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+221,Santos FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1403,Santos Laguna,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+10217,Sarpsborg 08 FF,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+9636,Seattle Sounders FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+61,Servette FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+60529,Shabab Al-Ahli Club,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+3258,Shamrock Rovers,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1177,Silkeborg IF,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+132785,Siwelele Football Club,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+540,Slovan Bratislava,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+468,Sparta Rotterdam,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+232,Spartak Moscow,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+199,Sport Club Corinthians Paulista,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1189,St. Patrick's Athletic,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1421,Stade Reims,1,,,0.0,VERIFIED_NON_TOP5,Transfermarkt club identity; 2025-26 league classification: French Ligue 2,1.0,0,user_evidence_non_top5
+65036,Surkhon Termiz,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+8054,Sydney FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+585,São Paulo Futebol Clube,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+15838,Terengganu FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+7055,Tigres UANL,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+9526,Turan-Tovuz IK,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1038,UC Sampdoria,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+9890,US Monastir,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+5622,Universidad de Concepción,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+1426,VVV-Venlo,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+14182,Violette Athletic Club,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+2420,Vitória Guimarães SC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+36100,Western Sydney Wanderers,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+88,Widzew Lodz,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+4441,Wolfsberger AC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+17276,Zhejiang FC,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5
+3508,Zulte Waregem,1,,,,UNREVIEWED,,1.0,0,provisional_non_top5

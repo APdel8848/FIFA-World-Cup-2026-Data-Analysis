@@ -1,0 +1,17 @@
+{
+  "started_at_utc": "2026-06-03T16:08:34+00:00",
+  "finished_at_utc": "2026-06-03T16:09:50+00:00",
+  "source": "Transfermarkt",
+  "teams_url": "https://www.transfermarkt.us/world-cup/teilnehmer/pokalwettbewerb/FIWC",
+  "teams_count": 48,
+  "players_count": 1246,
+  "raw_html_dir": "D:\\Codex_workspace\\世界杯\\raw",
+  "squad_size_mismatch_count": 0,
+  "squad_size_mismatches": [],
+  "files": {
+    "teams_csv": "D:\\Codex_workspace\\世界杯\\teams_market_values.csv",
+    "players_csv": "D:\\Codex_workspace\\世界杯\\players_market_values.csv",
+    "summary_csv": "D:\\Codex_workspace\\世界杯\\summary_by_team.csv",
+    "excel": "D:\\Codex_workspace\\世界杯\\worldcup_market_values.xlsx"
+  }
+}
